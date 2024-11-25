@@ -77,6 +77,8 @@ void LHEEvent::fromXML(const tinyxml2::XMLElement *element)
   if(!text) throw runtime_error("error parsing event information");
 
   // Parse particle information.
+  particles.clear();
+  particles.reserve(nparticle);
   for(size_t i = 0; i < nparticle; ++i) {
     particles.emplace_back();
     LHEParticle &particle = particles.back();
